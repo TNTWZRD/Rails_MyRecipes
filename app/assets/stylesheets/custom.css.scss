@@ -1,6 +1,8 @@
 @import "bootstrap-sprockets";
 @import "bootstrap";
 
+.center{text-align: center;}
+
 .navbar
 {
   border-radius: 0;
@@ -51,4 +53,14 @@ h2
   text-align: center;
   font-weight: normal;
   color: #777;
+}
+
+.chef_info
+{
+  margin-top: 10px;
+}
+
+.chef_info .gravitar
+{
+  border-radius: 10px;
 }
