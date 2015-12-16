@@ -1,0 +1,9 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "All Recipes", recipes_path %></li>
+  <li class="active">Add New Recipe</li>
+</ol>
+
+<%= render 'shared/title', title: "Create a New Recipe" %>
+
+<%= render 'form' %>

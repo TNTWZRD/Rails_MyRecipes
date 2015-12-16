@@ -1,0 +1,51 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li><%= link_to "All Recipes", recipes_path %></li>
+  <li class="active">Single Recipe</li>
+</ol>
+
+<%= render 'shared/title', title: @recipe.name %>
+
+<div class="row">
+  
+  <div class="col-md-8">
+    <div class="row">
+      
+      <div class="col-lg-5">
+        <div class="show_recipe">
+          <%= image_tag(@recipe.picture.url, size: "250x150", class: "gravitar") if @recipe.picture? %>
+        </div>
+      </div>
+  
+      <div class="col-lg-7">
+        
+        <h4>
+          Summary: 
+        </h4>
+        <p>
+          <%= @recipe.summary %>
+        </p>
+      </div>
+    </div>
+
+    <h4>
+      Recipe:
+    </h4>
+    <div class="well">
+      <%= simple_format(@recipe.description) %>
+    </div>
+  </div>
+  
+    
+    
+    <div class="col-md-4 center">
+      <section class="chef_info center">
+        <%= gravitar_for @recipe.chef, size: 200 %>
+        <h5>
+          Chef name: <%= @recipe.chef.name %>
+        </h5>
+        <%= link_to "Edit This Recipe", edit_recipe_path(@recipe) %>
+      </section>
+    </div>
+    
+  </div>

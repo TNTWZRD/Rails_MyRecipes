@@ -1,0 +1,46 @@
+<ol class="breadcrumb">
+  <li><%= link_to "Home", root_path %></li>
+  <li class="active">All Recipes</li>
+</ol>
+
+<%= render 'shared/title', title: "All Recipes" %>
+
+<% @recipes.each do |recipe| %>
+  <div class="row">
+    
+    <div class="col-md-2 center">
+      <section class="chef_info center">
+        <%= gravitar_for recipe.chef, size: 100 %>
+        <h5>
+          Chef name: <%= recipe.chef.name %>
+        </h5>
+      </section>
+    </div>
+    
+    <div class="col-lg-10 well">
+      <div class="row">
+        <div class="col-lg-8">
+          <h4>
+            <%= link_to recipe.name, recipe_path(recipe) %>
+          </h4>
+          <p>
+            <%= recipe.summary %>
+          </p>
+          <p>
+            <span class="quiet">
+              <small>
+                <%= time_ago_in_words(recipe.created_at) %> ago
+              </small>
+            </span>
+          </p>
+        </div>
+        <div class="col-md-4">
+          <div class="show_recipe">
+            <%= image_tag(recipe.picture.url, size: "250x150", class: "gravitar") if recipe.picture? %>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  </div>
+<% end %>
